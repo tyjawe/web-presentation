@@ -2,11 +2,11 @@
 layout: post
 ---
 
-```bash
+```shell
 # add individual file
-git add *file1*
+$ git add *file1*
 # or add all changed files
-git add .
+$ git add .
 ```
 
 ![image info](./images/layers5.jpg)
