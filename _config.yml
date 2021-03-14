@@ -1,7 +1,7 @@
 # Site settings
 title: online presentation
 
-theme: jekyll-theme-tactile
+theme: jekyll-theme-modernist
 
 # Conversion
 markdown:    kramdown
