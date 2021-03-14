@@ -1,8 +1,6 @@
 # Site settings
 title: online presentation
 
-theme: jekyll-theme-modernist
-
 # Conversion
 markdown:    kramdown
 highlighter: rouge

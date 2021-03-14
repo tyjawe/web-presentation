@@ -2,7 +2,7 @@
 layout: post
 ---
 
-$bg-green-light add individual file
+.bg-green-light add individual file
 
 ```shell
 $ git add file1
