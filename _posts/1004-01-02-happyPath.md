@@ -2,11 +2,13 @@
 layout: post
 ---
 
-```shell
-# add individual file
-$ git add file1
+$bg-green-light add individual file
 
-# or add all changed files
+```shell
+$ git add file1
+```
+$bg-green-light or add all changed files
+```bash
 $ git add .
 ```
 
