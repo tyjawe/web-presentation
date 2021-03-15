@@ -7,7 +7,7 @@ layout: post
 ```shell
 $ git add file1
 ```
-<span style="color:green"; font-size:2em>  or add all changed files</span>
+<span style="color:green; font-size:2em">  or add all changed files</span>
 ```bash
 $ git add .
 ```
