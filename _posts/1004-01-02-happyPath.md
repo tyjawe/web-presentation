@@ -2,11 +2,10 @@
 layout: post
 ---
 
-<span style="color:green; font-size:1em">add individual file</span>
-
 ```shell
+###dd individual file
 $ git add file1
-<span style="color:green; font-size:16px">  or add all changed files</span>
+### or add all changed files
 $ git add .
 ```
 
