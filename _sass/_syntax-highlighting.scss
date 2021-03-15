@@ -1,90 +1,468 @@
-/* Solarized Light
+/**
+ * based on Solarized Dark theme for reveal.js by Achim Staebler
+ * and Solarized colors by Ethan Schoonover
+ * http://ethanschoonover.com/solarized
+ * remixed by: Thomas Friese
+ * http://tasmo.rocks/
+**/
 
-For use with Jekyll and Pygments
+// ---------------------------------------------
+// Main Variables
+// Solarized base colors
+$base03:    #002b36;
+$base02:    #073642;
+$base01:    #586e75;
+$base00:    #657b83;
+$base0:     #839496;
+$base1:     #93a1a1;
+$base2:     #eee8d5;
+$base3:     #fdf6e3;
+$yellow:    #b58900;
+$orange:    #cb4b16;
+$red:       #dc322f;
+$magenta:   #d33682;
+$violet:    #6c71c4;
+$blue:      #268bd2;
+$cyan:      #2aa198;
+$green:     #859900;
 
-http://ethanschoonover.com/solarized
+// Background of the presentation
+$backgroundColor: $base03;
 
-SOLARIZED HEX      ROLE
---------- -------- ------------------------------------------
-base01    #586e75  body text / default code / primary content
-base1     #93a1a1  comments / secondary content
-base3     #fdf6e3  background
-orange    #cb4b16  constants
-red       #dc322f  regex, special keywords
-blue      #268bd2  reserved keywords
-cyan      #2aa198  strings, numbers
-green     #859900  operators, other keywords
-*/
+// Primary/body text
+$mainFont: 'Open Sans', Arial, sans-serif;
+$mainFontWeight: 400;
+$mainFontSize: 2rem;
+$mainColor: $base1;
 
-.highlight {
-    background-color: #fcfcfc;
-    color: #586e75;
-    .c { color: #93a1a1 } /* Comment */
-    .err{ color: #586e75 } /* Error */
-    .g{ color: #586e75 } /* Generic */
-    .k{ color: #859900 } /* Keyword */
-    .l{ color: #586e75 } /* Literal */
-    .n{ color: #586e75 } /* Name */
-    .o{ color: #859900 } /* Operator */
-    .x{ color: #cb4b16 } /* Other */
-    .p{ color: #586e75 } /* Punctuation */
-    .cm{ color: #93a1a1 } /* Comment.Multiline */
-    .cp{ color: #859900 } /* Comment.Preproc */
-    .c1{ color: #93a1a1 } /* Comment.Single */
-    .cs{ color: #859900 } /* Comment.Special */
-    .gd{ color: #2aa198 } /* Generic.Deleted */
-    .ge{ color: #586e75; font-style: italic } /* Generic.Emph */
-    .gr{ color: #dc322f } /* Generic.Error */
-    .gh{ color: #cb4b16 } /* Generic.Heading */
-    .gi{ color: #859900 } /* Generic.Inserted */
-    .go{ color: #586e75 } /* Generic.Output */
-    .gp{ color: #586e75 } /* Generic.Prompt */
-    .gs{ color: #586e75; font-weight: bold } /* Generic.Strong */
-    .gu{ color: #cb4b16 } /* Generic.Subheading */
-    .gt{ color: #586e75 } /* Generic.Traceback */
-    .kc{ color: #cb4b16 } /* Keyword.Constant */
-    .kd{ color: #268bd2 } /* Keyword.Declaration */
-    .kn{ color: #859900 } /* Keyword.Namespace */
-    .kp{ color: #859900 } /* Keyword.Pseudo */
-    .kr{ color: #268bd2 } /* Keyword.Reserved */
-    .kt{ color: #dc322f } /* Keyword.Type */
-    .ld{ color: #586e75 } /* Literal.Date */
-    .m{ color: #2aa198 } /* Literal.Number */
-    .s{ color: #2aa198 } /* Literal.String */
-    .na{ color: #586e75 } /* Name.Attribute */
-    .nb{ color: #B58900 } /* Name.Builtin */
-    .nc{ color: #268bd2 } /* Name.Class */
-    .no{ color: #cb4b16 } /* Name.Constant */
-    .nd{ color: #268bd2 } /* Name.Decorator */
-    .ni{ color: #cb4b16 } /* Name.Entity */
-    .ne{ color: #cb4b16 } /* Name.Exception */
-    .nf{ color: #268bd2 } /* Name.Function */
-    .nl{ color: #586e75 } /* Name.Label */
-    .nn{ color: #586e75 } /* Name.Namespace */
-    .nx{ color: #586e75 } /* Name.Other */
-    .py{ color: #586e75 } /* Name.Property */
-    .nt{ color: #268bd2 } /* Name.Tag */
-    .nv{ color: #268bd2 } /* Name.Variable */
-    .ow{ color: #859900 } /* Operator.Word */
-    .w{ color: #586e75 } /* Text.Whitespace */
-    .mf{ color: #2aa198 } /* Literal.Number.Float */
-    .mh{ color: #2aa198 } /* Literal.Number.Hex */
-    .mi{ color: #2aa198 } /* Literal.Number.Integer */
-    .mo{ color: #2aa198 } /* Literal.Number.Oct */
-    .sb{ color: #93a1a1 } /* Literal.String.Backtick */
-    .sc{ color: #2aa198 } /* Literal.String.Char */
-    .sd{ color: #586e75 } /* Literal.String.Doc */
-    .s2{ color: #2aa198 } /* Literal.String.Double */
-    .se{ color: #cb4b16 } /* Literal.String.Escape */
-    .sh{ color: #586e75 } /* Literal.String.Heredoc */
-    .si{ color: #2aa198 } /* Literal.String.Interpol */
-    .sx{ color: #2aa198 } /* Literal.String.Other */
-    .sr{ color: #dc322f } /* Literal.String.Regex */
-    .s1{ color: #2aa198 } /* Literal.String.Single */
-    .ss{ color: #2aa198 } /* Literal.String.Symbol */
-    .bp{ color: #268bd2 } /* Name.Builtin.Pseudo */
-    .vc{ color: #268bd2 } /* Name.Variable.Class */
-    .vg{ color: #268bd2 } /* Name.Variable.Global */
-    .vi{ color: #268bd2 } /* Name.Variable.Instance */
-    .il{ color: #2aa198 } /* Literal.Number.Integer.Long */
+// Vertical spacing between blocks of text
+$blockMargin: 20px;
+
+// Headings
+$headingMargin: .5em 0;
+$headingFont: 'open_sanslight' ,'Open Sans', Arial, sans-serif;
+$headingColor: $base2;
+$headingLineHeight: 1em;
+$headingLetterSpacing: 0.02rem;
+$headingTextTransform: none;
+$headingTextShadow: 0px 0px 2px rgba( $headingColor, .5 );
+$headingFontWeight: $mainFontWeight + 400;
+$heading1TextShadow: $headingTextShadow;
+
+$heading1Size: 5rem;
+$heading2Size: 4rem;
+$heading3Size: 3rem;
+$heading4Size: 2.00rem;
+
+// Links and actions
+$linkColor: $blue;
+$linkColorHover: lighten( $linkColor, 20% );
+
+// Text selection
+$selectionBackgroundColor: $magenta;
+$selectionColor: $base3;
+
+// Generates the presentation background, can be overridden
+// to return a background image or gradient
+@mixin bodyBackground() {
+	background: $backgroundColor;
 }
+
+$headerFont: $headingFont;
+$captionFont: $mainFont;
+$codeFont: 'Source Code Pro', 'Inconsolata', monospace;
+$codeFontSize: $mainFontSize - .5rem;
+$altFont: serif;
+$italicFont: 'open_sanslight_italic', 'Open Sans', Arial, sans-serif;
+$quoteFont: 'droid_serifitalic', cursive;
+
+// reveal.js theme
+@import "../../reveal.js/css/reveal";
+// Theme template ------------------------------
+@import "../../reveal.js/css/theme/template/theme";
+// ---------------------------------------------
+@import "../mixin";
+@import "../fonts";
+@import "syntax/syntax_solarized";
+// ---------------------------------------------
+@mixin rebase( $rebase03,$rebase02,$rebase01,$rebase00,$rebase0,$rebase1,$rebase2,$rebase3 )
+{
+  background-color: $rebase03;
+  color: $rebase1;
+  //* { color: $rebase1; }
+  body {
+    background-color: $rebase03;
+  }
+  .reveal {
+    background-color: $rebase03;
+    color: $rebase1;
+    text-shadow: 0 0 1px rgba( $rebase1, .2 );
+    -webkit-text-stroke: 1px rgba( $rebase1, .2 );
+    h1,h2,h3,h4,h5,h6 {
+      color: $rebase2;
+      border-color: $rebase0;
+      text-shadow: $headingTextShadow;
+      a {
+        &:not( .image ), &:active, &:visited {
+          color: $rebase2;
+        }
+        &:hover {
+          color: $linkColorHover;
+        }
+      }
+    }
+    a {
+      &:not( .image ), &:active, &:visited {
+        color: $linkColor;
+      }
+      &:hover {
+        color: $linkColorHover;
+      }
+    }
+    h1,h2,h3,h4,h5,h6,p,li {
+      >code, >a>code {
+        background: $rebase1;
+        color: $rebase03;
+        border: 1px solid $rebase1;
+      }
+    }
+    section img {
+      border: 4px solid $rebase1;
+    }
+    figure.highlight {
+      background: $rebase3;
+    }
+  }
+}
+@mixin accentize( $accent ) {
+  a#sitelink{ background-color: $accent; }
+  a, a:active, a:visited, code.url { color: $accent; }
+  h1 { color: $accent }
+  h2,h3,h4,h5,h6 { color: $accent }
+  h1#pagetitle, h1:first-of-type { color: $accent; }
+}
+
+/* dark is default mode, so pair with general html definition */
+.light { @include rebase( $base3,$base2,$base1,$base0,$base00,$base01,$base02,$base03 ) }
+.dark { @include rebase( $base03,$base02,$base01,$base00,$base0,$base1,$base2,$base3 ) }
+html * {
+  color-profile: sRGB;
+  -webkit-font-smoothing: antialiased;
+  font-smooth: always;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+.reveal {
+  font-weight: $mainFontWeight;
+  font-kerning: normal;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  p,
+  ul {
+    text-align: left;
+    font-weight: $mainFontWeight;
+  }
+  h1,h2,h3,h4,h5,h6,p,li {
+    >code, >a>code {
+      font-size: $mainFontSize;
+      @include border-radius( 0.15em );
+      padding: 0 0.3em;
+    }
+  }
+  pre {
+    box-shadow: none;
+    margin: 0;
+    width: unset;
+  }
+  pre,code {
+    font-family: $codeFont;
+    font-size: $codeFontSize;
+    font-weight: normal;
+  }
+  pre code {
+    padding: 0;
+    overflow: hidden;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+  figure.highlight {
+    width: 90%;
+    margin: .5em auto;
+    padding: .7em 1em .8em;
+    text-shadow: none;
+    box-shadow: 0px 0px 6px rgba( 0,0,0,0.3 );
+    @include border-radius( 0.4em );
+  }
+  blockquote {
+    background: inherit;
+    box-shadow: none;
+    font-family: $quoteFont;
+    font-size: 2.8rem;
+    font-style: normal;
+    font-weight: 100;
+    padding-left: 3em;
+    i.fa {
+      position:absolute;
+      font-size:2em;
+      font-style: italic;
+      line-height:1;
+      left:-.1em;
+      top:-.1em;
+    }
+    code {
+      font-size: 1.1em;
+    }
+  }
+  p > img,
+  .image {
+    display: block;
+    text-align: center;
+  }
+  iframe,
+  img {
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  }
+  .slides>section,
+  .slides>section>section {
+    padding: 0;
+  }
+  .slides>section {
+    >h1:first-child {
+      margin-top: 0;
+    }
+    &[data-background="black"] {
+      h1,h2,h3,h4,h5,h6 {
+        color: $base2;
+      }
+    }
+    .fragment.highlight-red,
+    .fragment.highlight-current-red,
+    .fragment.highlight-green,
+    .fragment.highlight-current-green,
+    .fragment.highlight-blue,
+    .fragment.highlight-current-blue {
+      opacity: 1;
+    }
+    .fragment.highlight-red.visible,
+    .fragment.highlight-current-red.current-fragment {
+      * {
+        color: $red;
+        text-shadow: 0 0 1px rgba( $red, .2 );
+        -webkit-text-stroke: 1px rgba( $red, .2 );
+      }
+      color: $red;
+      text-shadow: 0 0 1px rgba( $red, .2 );
+      -webkit-text-stroke: 1px rgba( $red, .2 );
+    }
+    .fragment.highlight-green.visible,
+    .fragment.highlight-current-green.current-fragment {
+      * {
+        color: $green;
+        text-shadow: 0 0 1px rgba( $green, .2 );
+        -webkit-text-stroke: 1px rgba( $green, .2 );
+      }
+      color: $green;
+      text-shadow: 0 0 1px rgba( $green, .2 );
+      -webkit-text-stroke: 1px rgba( $green, .2 );
+    }
+    .fragment.highlight-blue.visible,
+    .fragment.highlight-current-blue.current-fragment {
+      * {
+        color: $blue;
+        text-shadow: 0 0 1px rgba( $blue, .2 );
+        -webkit-text-stroke: 1px rgba( $blue, .2 );
+      }
+      color: $blue;
+      text-shadow: 0 0 1px rgba( $blue, .2 );
+      -webkit-text-stroke: 1px rgba( $blue, .2 );
+    }
+  }
+  // Fontawesome
+  .fa {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-size: 35%;
+    font-style: normal;
+    font-weight: 200;
+    vertical-align: super;
+    line-height: 1;
+    padding-left: 0.2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .fa-twitter, .fa-github {
+    font-size: 100%;
+  }
+  // accentize
+  .slides>section.yellow, .yellow{
+    @include accentize( $yellow );
+    h1,h2,h3,h4,h5,h6,a,a:active,a:visited,code.url {
+      color:$yellow;
+      text-shadow: 0 0 1px rgba( $yellow, .2 );
+      -webkit-text-stroke: 1px rgba( $yellow, .2 );
+    }
+  }
+  .slides>section.orange, .orange {
+    @include accentize( $orange );
+    h1,h2,h3,h4,h5,h6,a,a:active,a:visited,code.url {
+      color: $orange;
+      text-shadow: 0 0 1px rgba( $orange, .2 );
+      -webkit-text-stroke: 1px rgba( $orange, .2 );
+    }
+  }
+  .slides>section.red, .red {
+    @include accentize( $red );
+    h1,h2,h3,h4,h5,h6,a,a:active,a:visited,code.url {
+      color: $red;
+      text-shadow: 0 0 1px rgba( $red, .2 );
+      -webkit-text-stroke: 1px rgba( $red, .2 );
+    }
+  }
+  .slides>section.magenta, .magenta {
+    @include accentize( $magenta );
+    h1,h2,h3,h4,h5,h6,a,a:active,a:visited,code.url {
+      color: $magenta;
+      text-shadow: 0 0 1px rgba( $magenta, .2 );
+      -webkit-text-stroke: 1px rgba( $magenta, .2 );
+    }
+  }
+  .slides>section.violet, .violet {
+    @include accentize( $violet );
+    h1,h2,h3,h4,h5,h6,a,a:active,a:visited,code.url {
+      color: $violet;
+      text-shadow: 0 0 1px rgba( $violet, .2 );
+      -webkit-text-stroke: 1px rgba( $violet, .2 );
+    }
+  }
+  .slides>section.blue, .blue {
+    @include accentize( $blue );
+    h1,h2,h3,h4,h5,h6,a,a:active,a:visited,code.url {
+      color:$blue;
+      text-shadow: 0 0 1px rgba( $blue, .2 );
+      -webkit-text-stroke: 1px rgba( $blue, .2 );
+    }
+  }
+  .slides>section.cyan, .cyan {
+    @include accentize( $cyan );
+    h1,h2,h3,h4,h5,h6,a,a:active,a:visited,code.url {
+      color: $cyan;
+      text-shadow: 0 0 1px rgba( $cyan, .2 );
+      -webkit-text-stroke: 1px rgba( $cyan, .2 );
+    }
+  }
+  .slides>section.green, .green {
+    @include accentize( $green );
+    h1,h2,h3,h4,h5,h6,a,a:active,a:visited,code.url {
+      color: $green;
+      text-shadow: 0 0 1px rgba( $green, .2 );
+      -webkit-text-stroke: 1px rgba( $green, .2 );
+    }
+  }
+}
+
+
+
+
+/**
+ * Solarized syntax
+ * for use with Jekyll and Pygments
+ * based on Solarized Dark theme for reveal.js by Achim Staebler
+ * and Solarized colors by Ethan Schoonover
+ * http://ethanschoonover.com/solarized
+ * remixed by: Thomas Friese
+ * http://tasmo.rocks/
+**/
+@mixin syntax( $sybase03,$sybase02,$sybase01,$sybase00,$sybase0,$sybase1,$sybase2,$sybase3,$syyellow,$syorange,$syred,$symagenta,$syviolet,$syblue,$sycyan,$sygreen )
+{
+  .reveal pre {
+    background-color: $sybase03; color: $sybase1;
+    code a {
+      &:not( .image ), &:active, &:visited {
+        color: $sybase1;
+      }
+      &:hover {
+        color: lighten( $sybase1, 20% );
+      }
+    }
+  }
+  .reveal pre code {
+  	.lineno { color: $sybase01 } // Line Numbers
+  	.c { color: $sybase01 } /* Comment */
+  	.err { color: $sybase1 } /* Error */
+  	.g { color: $sybase1 } /* Generic */
+  	.k { color: $sygreen } /* Keyword */
+  	.l { color: $sybase1 } /* Literal */
+  	.n { color: $sybase1 } /* Name */
+  	.o { color: $sygreen } /* Operator */
+  	.x { color: $syorange } /* Other */
+  	.p { color: $sybase1 } /* Punctuation */
+  	.cm { color: $sybase01 } /* Comment.Multiline */
+  	.cp { color: $sygreen } /* Comment.Preproc */
+  	.c1 { color: $sybase01 } /* Comment.Single */
+  	.cs { color: $sygreen } /* Comment.Special */
+  	.gd { color: $sycyan } /* Generic.Deleted */
+  	.ge { color: $sybase1; font-style: italic } /* Generic.Emph */
+  	.gr { color: $syred } /* Generic.Error */
+  	.gh { color: $syorange } /* Generic.Heading */
+  	.gi { color: $sygreen } /* Generic.Inserted */
+  	.go { color: $sybase1 } /* Generic.Output */
+  	.gp { color: $sybase1 } /* Generic.Prompt */
+  	.gs { color: $sybase1; font-weight: bold } /* Generic.Strong */
+  	.gu { color: $syorange } /* Generic.Subheading */
+  	.gt { color: $sybase1 } /* Generic.Traceback */
+  	.kc { color: $syorange } /* Keyword.Constant */
+  	.kd { color: $syblue } /* Keyword.Declaration */
+  	.kn { color: $sygreen } /* Keyword.Namespace */
+  	.kp { color: $sygreen } /* Keyword.Pseudo */
+  	.kr { color: $syblue } /* Keyword.Reserved */
+  	.kt { color: $syred } /* Keyword.Type */
+  	.ld { color: $sybase1 } /* Literal.Date */
+  	.m { color: $sycyan } /* Literal.Number */
+  	.s { color: $sycyan } /* Literal.String */
+  	.na { color: $sybase1 } /* Name.Attribute */
+  	.nb { color: $syyellow } /* Name.Builtin */
+  	.nc { color: $syblue } /* Name.Class */
+  	.no { color: $syorange } /* Name.Constant */
+  	.nd { color: $syblue } /* Name.Decorator */
+  	.ni { color: $syorange } /* Name.Entity */
+  	.ne { color: $syorange } /* Name.Exception */
+  	.nf { color: $syblue } /* Name.Function */
+  	.nl { color: $sybase1 } /* Name.Label */
+  	.nn { color: $sybase1 } /* Name.Namespace */
+  	.nx { color: $sybase1 } /* Name.Other */
+  	.py { color: $sybase1 } /* Name.Property */
+  	.nt { color: $syblue } /* Name.Tag */
+  	.nv { color: $syblue } /* Name.Variable */
+  	.ow { color: $sygreen } /* Operator.Word */
+  	.w { color: $sybase1 } /* Text.Whitespace */
+  	.mf { color: $sycyan } /* Literal.Number.Float */
+  	.mh { color: $sycyan } /* Literal.Number.Hex */
+  	.mi { color: $sycyan } /* Literal.Number.Integer */
+  	.mo { color: $sycyan } /* Literal.Number.Oct */
+  	.sb { color: $sybase01 } /* Literal.String.Backtick */
+  	.sc { color: $sycyan } /* Literal.String.Char */
+  	.sd { color: $sybase1 } /* Literal.String.Doc */
+  	.s2 { color: $sycyan } /* Literal.String.Double */
+  	.se { color: $syorange } /* Literal.String.Escape */
+  	.sh { color: $sybase1 } /* Literal.String.Heredoc */
+  	.si { color: $sycyan } /* Literal.String.Interpol */
+  	.sx { color: $sycyan } /* Literal.String.Other */
+  	.sr { color: $syred } /* Literal.String.Regex */
+  	.s1 { color: $sycyan } /* Literal.String.Single */
+  	.ss { color: $sycyan } /* Literal.String.Symbol */
+  	.bp { color: $syblue } /* Name.Builtin.Pseudo */
+  	.vc { color: $syblue } /* Name.Variable.Class */
+  	.vg { color: $syblue } /* Name.Variable.Global */
+  	.vi { color: $syblue } /* Name.Variable.Instance */
+  	.il { color: $sycyan } /* Literal.Number.Integer.Long */
+  }
+}
+// dark syntax for light layout
+.light { @include syntax( $base03,$base02,$base01,$base00,$base0,$base1,$base2,$base3,$yellow,$orange,$red,$magenta,$violet,$blue,$cyan,$green ) }
+// light syntax for dark layout
+.dark { @include syntax( $base3,$base2,$base1,$base0,$base00,$base01,$base02,$base03,$yellow,$orange,$red,$magenta,$violet,$blue,$cyan,$green ) }

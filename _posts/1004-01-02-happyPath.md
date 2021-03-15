@@ -2,8 +2,8 @@
 layout: post
 ---
 
-```shell
-###dd individual file
+```bash
+### add individual file
 $ git add file1
 ### or add all changed files
 $ git add .
