@@ -2,12 +2,12 @@
 layout: post
 ---
 
-.bg-green-light add individual file
+<span style="color:light-green"> add individual file</span>
 
 ```shell
 $ git add file1
 ```
-$bg-green-light or add all changed files
+<span style="color:green"; font-size:2em>  or add all changed files</span>
 ```bash
 $ git add .
 ```
