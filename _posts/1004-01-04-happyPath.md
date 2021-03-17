@@ -3,7 +3,7 @@ layout: post
 ---
 
 ```shell
-# push your files
+### push your files
 $ git push
 ```
 
